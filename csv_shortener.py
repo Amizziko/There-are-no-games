@@ -8,10 +8,10 @@ df = pd.read_csv("applications.csv", low_memory=False)
 df = df[df["type"].str.lower() == "game"]
 
 # Optional: remove rows where name/description are missing
-df = df.dropna(subset=["name", "short_description"])
+df = df.dropna(subset=["name", "short_description","metacritic_score"])
 
 # 2. Keep only the columns you care about
-df = df[["appid", "name", "short_description"]]
+df = df[["appid", "name", "short_description", "metacritic_score"]]
 
 # 3. (Optional) clean text a little
 df["short_description"] = df["short_description"].str.strip()
