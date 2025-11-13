@@ -40,10 +40,9 @@ def main():
         .reset_index()
         .rename(columns={"voted_up": "percent_positive"})
     )
-    avg_reviews["percent_positive"] *= 100
     
     merged_list = df.merge(avg_reviews, on="appid", how="left")
-    merged_list["percent_positive"].fillna(50, inplace=True)
+    merged_list["percent_positive"] = merged_list["percent_positive"].fillna(50)
     merged_list.to_csv("steam_games_cleaned.csv", index=False)
 
 if __name__ == "__main__":

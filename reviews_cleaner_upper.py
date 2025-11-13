@@ -2,7 +2,7 @@ import csv
 import sys
 
 #
-#This part was written by copilot
+#This file was written by copilot
 #
 #
 
