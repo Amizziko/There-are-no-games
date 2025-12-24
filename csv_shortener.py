@@ -43,7 +43,7 @@ def main():
     )
     
     merged_list = df.merge(avg_reviews, on="appid", how="left")
-    merged_list["percent_positive"] = merged_list["percent_positive"].fillna(0.5)
+    merged_list["percent_positive"] = merged_list["percent_positive"].fillna(-1)
     merged_list.to_csv("steam_games_cleaned.csv", index=False)
 
 if __name__ == "__main__":
