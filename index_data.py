@@ -34,12 +34,6 @@ osearch = OpenSearch(
 )
 
 
-# osearch = OpenSearch(
-#     hosts=[{"host": "localhost", "port": 9200}],
-#     http_auth=("admin", "fuCck_you_2!"),  # replace with your username/password
-#     use_ssl=False,                 # True only if using HTTPS
-#     verify_certs=False
-# )
 
 def create_index():
 
@@ -60,19 +54,7 @@ def create_index():
     if not osearch.indices.exists(index=INDEX_NAME):
         osearch.indices.create(index=INDEX_NAME, body=index_body)
 
-# ----------------------------
-# CSV streaming
-# ----------------------------
-# def stream_csv(path):
-#     df = pd.read_csv("steam_games_cleaned.csv", low_memory=False)
-#     with open(path, newline="", encoding="utf-8") as f:
-#         reader = csv.DictReader(f)
-#         for row in reader:
-#             yield {
-#                 "appid": row["appid"],
-#                 "name": row["name"],
-#                 "description": row["short_description"]
-#             }
+
 # ----------------------------
 # Chunking (baseline, model-agnostic)
 # ----------------------------
