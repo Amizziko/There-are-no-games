@@ -4,12 +4,12 @@ import pandas as pd
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 TOP_K = 5
 #doc_encodings = torch.load("splade_doc_encodings.pt")
-data = torch.load("splade_doc_matrix.pt")
+data = torch.load("custom_doc_matrix.pt")
 
 doc_matrix = data["doc_matrix"]
 doc_ids = data["doc_ids"]
-tokenizer = AutoTokenizer.from_pretrained("naver/splade-v3")
-model = AutoModelForMaskedLM.from_pretrained("naver/splade-v3")
+tokenizer = AutoTokenizer.from_pretrained("mazombieme/There-Are-No-Games")
+model = AutoModelForMaskedLM.from_pretrained("mazombieme/There-Are-No-Games")
 model.to(DEVICE)
 model.eval()
 vocab_size = 30522
